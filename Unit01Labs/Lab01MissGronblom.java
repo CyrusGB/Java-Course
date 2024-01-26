@@ -8,9 +8,9 @@ For 100 points get the same output using only four methods and eight calls to th
 */
 public class Lab01MissGronblom
 {
-   public static void main(String[] args)
+   public static void main(String[] args) //Writes Mississipi into the console.
    {
-    m();
+    m(); 
     i();
     ssi();
     ssi();
@@ -20,7 +20,7 @@ public class Lab01MissGronblom
 
    }
    
-   private static void m(){
+   private static void m(){ //Prints in the letter M.
     System.out.println("M     M");
     System.out.println("MM   MM");
     System.out.println("M M M M");
@@ -30,7 +30,7 @@ public class Lab01MissGronblom
     System.out.println("M     M");
     System.out.println("");
   }
-   private static void i(){
+   private static void i(){ //Prints in the letter I.
     System.out.println(" IIIII ");
     System.out.println("   I   ");
     System.out.println("   I   ");
@@ -40,7 +40,7 @@ public class Lab01MissGronblom
     System.out.println(" IIIII ");
     System.out.println("");
   }
-  //  private static void writes(){
+  //  private static void writes(){ ////Prints in the letter S. (OLD)
   //   System.out.println(" SSSSS ");
   //   System.out.println("S     S");
   //   System.out.println("S      ");
@@ -50,7 +50,7 @@ public class Lab01MissGronblom
   //   System.out.println(" SSSSS ");
   //   System.out.println("");
   // }
-   private static void p(){
+   private static void p(){ //Prints in the letter P.
     System.out.println("PPPPPP ");
     System.out.println("P     P");
     System.out.println("P     P");
@@ -61,7 +61,7 @@ public class Lab01MissGronblom
     System.out.println("");
   }
   
-  private static void ssi(){
+  private static void ssi(){ //Prints in the letters SSI.
     System.out.println(" SSSSS ");
     System.out.println("S     S");
     System.out.println("S      ");
