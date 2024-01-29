@@ -47,7 +47,7 @@ public class Lab01B_Gronblom
       System.out.println("|      |");
    }
 
-   private static void country(String firstText, String secondText){ //Draws the country name module on the rocket.
+   private static void country(String firstText, String secondText){ //Draws the country name module of the rocket.
       System.out.println("+------+");
       System.out.println("|      |");
       System.out.println("|" + firstText.toString() + "|");
@@ -56,17 +56,17 @@ public class Lab01B_Gronblom
    }
 
    private static void chooseCountry(){ //Randomly chooses a country.
-      Random random = new Random();
-      switch (random.nextInt(0, 3)) {
-         case 0:
+      Random random = new Random(); //Random number.
+      switch (random.nextInt(0, 3)){ //Determines the name of the country based on random number from 0 to 2.
+         case 0: //Country is United States.
             country("United", "States");
             break;
 
-         case 1:
+         case 1: //Country is Russia.
             country("Russia", "      ");
             break;
 
-         case 2:
+         case 2: //Coutnry is Japan.
             country("Japan ", "      ");
       }
    }
