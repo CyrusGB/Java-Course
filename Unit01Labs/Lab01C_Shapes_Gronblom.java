@@ -1,6 +1,6 @@
 // Lab01CStudentLastName.java
 // Student starting version of the Lab01C assignment.
-// Student Name:             Date:
+// Student Name: Cyrus Gronblom     Date: 1/30/24
 // Purpose of Program: 
 // Demonstrate knowledge of Canvas X&Y Coordinates and Graphics drawing methods  
 import java.awt.Canvas;
@@ -36,23 +36,42 @@ public class Lab01C_Shapes_Gronblom extends Canvas {
         // DRAW SPHERE
         g.drawOval(100, 100, squareW, squareH);
         //Rings
-
-        int noOfRings = 3;
-        for(int i = 1; i < noOfRings+1; i++){
-            g.drawOval(250 - (25*i), 100, 50*i, squareH);
+        int noOfRings = 3; //Number of rings
+        for(int i = 1; i < noOfRings+1; i++){ //Draws rings
+            int ovalWidth = i*80; //Oval Width
+            g.drawOval(250 - ovalWidth/2, 100, ovalWidth, squareH);
+            g.drawOval(100, 250-ovalWidth/2, squareW, ovalWidth);
         }
 
-
         // DRAW INSCRIBED/CIRCUMSCRIBED TRIANGLE
-
-
+        g.drawOval(750, 300, squareW, squareH);
+        g.drawLine(900,600,750,450);
+        int cornerX = 1006, cornerY = 344;
+        g.drawLine(750,450,cornerX,cornerY);
+        g.drawLine(900,600,cornerX,cornerY);
+        g.drawOval(805, 405, 140, 140);
 
         // DRAW APCS
+        g.fillRect(50, 550, 20, 100); //P
+        g.fillRect(70, 550, 20, 20);
+        g.fillRect(70, 590, 20, 20);
+        g.fillRect(90, 550, 20, 60);
 
+        g.fillRect(130, 550, 20, 100); //H
+        g.fillRect(150, 590, 20, 20);
+        g.fillRect(170, 550, 20, 100);
 
-
+        g.fillRect(210, 550, 60, 20); //S
+        g.fillRect(210, 570, 20, 20);
+        g.fillRect(210, 590, 60, 20);
+        g.fillRect(250, 610, 20, 20);
+        g.fillRect(210, 630, 60, 20);
+        
         // DRAW PACMEN FLOWER
-
+        g.fillArc(500, 500, 50, 50, 45, 270);
+        g.fillArc(465, 465, 50, 50, 135, 270);
+        g.fillArc(465, 535, 50, 50, -135, -270);
+        g.fillArc(430, 500, 50, 50, 135, -270);
     }
 
 
