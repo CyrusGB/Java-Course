@@ -66,7 +66,7 @@ public class Lab01B_Gronblom
             country("Russia", "      ");
             break;
 
-         case 2: //Coutnry is Japan.
+         case 2: //Country is Japan.
             country("Japan ", "      ");
       }
    }
