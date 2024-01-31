@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 public class Lab01C_Shapes_Gronblom extends Canvas {
    
    /* We need to create the JFrame object that will contain the Canvas Object*/
-   public static void main(String[] args) {
+   public static void main(String[] args) { //Runs Program
         JFrame frame = new JFrame("Lab 01C Drawing Shapes");/*Creates the JFrame and gives it a title */
         Canvas canvas = new Lab01C_Shapes_Gronblom();/*This class extends Canvas so it is itself a canvas class and inherits everything Canvas has, so the consructor call has to be the same name as the class we are in */
         canvas.setSize(1100, 800);/*Set dimensions of canvas changing these numbers will change the size of your canvas */
@@ -38,9 +38,9 @@ public class Lab01C_Shapes_Gronblom extends Canvas {
         //Rings
         int noOfRings = 3; //Number of rings
         for(int i = 1; i < noOfRings+1; i++){ //Draws rings
-            int ovalWidth = i*80; //Oval Width
-            g.drawOval(250 - ovalWidth/2, 100, ovalWidth, squareH);
-            g.drawOval(100, 250-ovalWidth/2, squareW, ovalWidth);
+            int ovalWidth = i * 80; //Oval Width
+            g.drawOval(250 - ovalWidth / 2, 100, ovalWidth, squareH);
+            g.drawOval(100, 250 - ovalWidth / 2, squareW, ovalWidth);
         }
 
         // DRAW INSCRIBED/CIRCUMSCRIBED TRIANGLE
