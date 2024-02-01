@@ -4,11 +4,9 @@
 // Purpose of Program: 
 // Computes the Mortgage Payment, Total Payments, and Total Interest of a loan. 
 
-import java.security.Principal;
-
 public class Lab02BGronblom
 {
-	public static void main(String[] args)
+	public static void main(String[] args) // Run main program
 	{
 		System.out.println("Lab02B, Student Version\n");
 
@@ -16,7 +14,7 @@ public class Lab02BGronblom
 		double annualRate = 4.25; // Yearly Rate
 		double numYears   = 30; // # of years
 
-		double R = annualRate / 12; // Month Rate
+		double R = annualRate / 1200; // Month Rate
 		double N = numYears * 12; // # of Months
 		// Monthly Payment
 		double monthlyPayment = ((R * Math.pow(R + 1, N)) / (Math.pow(R + 1, N) - 1)) * principal; 
@@ -25,8 +23,8 @@ public class Lab02BGronblom
 		System.out.println("Annual Rate:       " + "$" + Math.round(annualRate * 100.0) / 100.0);
 		System.out.println("Number Of Years:   " + Math.round(numYears * 100.0) / 100.0);
 		System.out.println("Monthly Payment:   " + "$" + Math.round(monthlyPayment * 100.0) / 100.0);
-		System.out.println("Total:             " + "$" + Math.round(monthlyPayment * 12 * 100.0) / 100.0);
-		System.out.println("Total Interest:    " + "$" + Math.round((monthlyPayment * 12 - principal) * 100.0) / 100.0);
+		System.out.println("Total:             " + "$" + Math.round(monthlyPayment * N * 100.0) / 100.0);
+		System.out.println("Total Interest:    " + "$" + Math.round((monthlyPayment * N - principal) * 100.0) / 100.0);
 
 
 
