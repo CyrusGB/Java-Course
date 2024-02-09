@@ -5,7 +5,7 @@
 // Modifying a class to add a constructor and methods to 
 // give it complete functionality for dealing with rational numbers  
 
-public class Lab3BRationalGronblom{
+public class Lab3BRationalGronblom{ // Basic fraction class
 	int startNum; // Start numerator
 	int startDen; // Start denominator
 	
@@ -14,11 +14,16 @@ public class Lab3BRationalGronblom{
 	int reducedNum; // Reduced numerator
 	int reducedDen; // Reduced denominator
 
-	public Lab3BRationalGronblom(int numerator, int denominator){
+	public Lab3BRationalGronblom(int numerator, int denominator){ // Constructor for fractions
 		startNum = numerator;
 		startDen = denominator;
-		reducedNum = numerator;
-		reducedDen = denominator;
+		reduce();
+	}
+
+	public Lab3BRationalGronblom(){ // Default constructor for fractions
+		startNum = 1;
+		startDen = 1;
+		reduce();
 	}
 
 	//method will output the original, reduced, 
@@ -58,8 +63,8 @@ public class Lab3BRationalGronblom{
 
 	private void reduce(){ // Reduces the numerator and denominator of the current rational.
 		getGCF(startNum, startDen);
-		reducedNum = reducedNum / gcf;
-		reducedDen = reducedDen / gcf;
+		reducedNum = startNum / gcf;
+		reducedDen = startDen / gcf;
 	}	
 
 	private double getDecimal(){ // Returns the decimal equivlent to the rational.
@@ -72,8 +77,31 @@ public class Lab3BRationalGronblom{
 		return n1 + "/" + n2;
 	}
 
-	private String getReduced(){ // Returns the reduced rational as string.
-		reduce();
+	public String getReduced(){ // Returns the reduced rational as string.
 		return reducedNum + "/" + reducedDen;
+	}
+
+	public void multiply(Lab3BRationalGronblom r1, Lab3BRationalGronblom r2){ // Multiplies two given fractions
+		startNum = r1.startNum * r2.startNum;
+		startDen = r1.startDen * r2.startDen;
+		reduce(); 
+	}
+
+	public void divide(Lab3BRationalGronblom r1, Lab3BRationalGronblom r2){ // Divides two given fractions
+		startNum = r1.startNum * r2.startDen;
+		startDen = r1.startDen * r2.startNum;
+		reduce(); 
+	}
+
+	public void add(Lab3BRationalGronblom r1, Lab3BRationalGronblom r2){ // Adds two given fractions
+		startNum = r1.startNum * r2.startDen + r2.startNum * r1.startDen; 
+		startDen = r1.startDen * r2.startDen;
+		reduce(); 
+	}
+	
+	public void subtract(Lab3BRationalGronblom r1, Lab3BRationalGronblom r2){ // Subtracts two given fractions
+		startNum = r1.startNum * r2.startDen - r2.startNum * r1.startDen; 
+		startDen = r1.startDen * r2.startDen;
+		reduce(); 
 	}
 }
