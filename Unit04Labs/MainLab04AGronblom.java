@@ -36,26 +36,26 @@ class MainLab04AGronblom{
   //will printout if the triangle is isosceles, equilateral, or scalene, and if it is scalene
   //it will output if it is a right triangle or not
   public static void printTriangleType(int s1, int s2, int s3){
-    if(s1 + s2 > s3 && s1 + s3 > s2 && s2 + s3 > s1){
-      if(s1 == s2 && s1 == s3){
+    if(s1 + s2 > s3 && s1 + s3 > s2 && s2 + s3 > s1){ // Check if triangle follows triangle inequality theorem
+      if(s1 == s2 && s1 == s3){ // Check if forms a equalateral triangle
         System.out.println("The inputted sides form an equalateral triangle.");
-      }else if((s1 == s2 && s1 != s3 || s1 == s3 && s1 != s2 || s2 == s3 && s2 != s1)){
+      }else if((s1 == s2 && s1 != s3 || s1 == s3 && s1 != s2 || s2 == s3 && s2 != s1)){ // Isosceles triangle
         System.out.println("The inputted sides form an isosceles triangle.");
-      }else{
-        List<Integer> sides = new ArrayList<Integer>();
+      }else{ // Scalene
+        List<Integer> sides = new ArrayList<Integer>(); // List of sides
         sides.add(s1);
         sides.add(s2);
         sides.add(s3);
-        Collections.sort(sides);
-        System.out.println("The sorted side lengths are: " + sides);
-        int a = sides.get(0), b = sides.get(1), c = sides.get(2);
-        if(Math.pow(a, 2) + Math.pow(b, 2) == Math.pow(c, 2)){
-          System.out.println("The inputted sides form a scalene right triangle.");
-        }else{
+        Collections.sort(sides); // Sort so that c is the largest side
+        System.out.println("The sorted side lengths are: " + sides); 
+        int a = sides.get(0), b = sides.get(1), c = sides.get(2); // Set tempory sides to side lengths
+        if(Math.pow(a, 2) + Math.pow(b, 2) == Math.pow(c, 2)){ // a^2 + b^2 = c^2 (to check if its a right triangle)
+          System.out.println("The inputted sides form a scalene triangle which also happens to be a right triangle.");
+        }else{ // its just a scalene triangle
           System.out.println("The inputted sides form a scalene triangle.");
         }
       }
-    }else{
+    }else{ // The sides do not follow the triangle inequality theorem
       System.out.println("The inputted sides are unable to form a triangle \nas they do not conform to the triangle inequality theorem.");
     }
   
@@ -66,10 +66,10 @@ class MainLab04AGronblom{
   //and ask for correct input again and correct input entered
   public static int enterData(int timesCalled) // Prompts user for data. Needs to know if its the first or second time so it can adjust text.
 	{
-		String text = "1st";
-    if(timesCalled == 1){
+		String text = "1st"; // Text which changes based on the amount of times called
+    if(timesCalled == 1){ // Change text to match times called
       text = "2nd";
-    }else if (timesCalled == 2){
+    }else if (timesCalled == 2){ // Change text to match times called 
       text = "final";
     }
 		Scanner input = new Scanner(System.in); // Input scanner
@@ -79,8 +79,7 @@ class MainLab04AGronblom{
 			input.nextLine(); //clear the invalid input before prompting again
 			System.out.print("Please enter the side length as an int (1,2,3) > ");
 		}
-    
-    int x = input.nextInt();
-		return x;
+		
+    return input.nextInt();
 	}
 }
