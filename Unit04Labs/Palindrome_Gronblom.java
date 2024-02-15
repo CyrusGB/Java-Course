@@ -11,14 +11,13 @@ class Palindrome_Gronblom{
 	* Postcondition: The value of true is returned if s is a Palindrome, false otherwise.
     * Note:          >>>>> This method is required for both the 80 point and the 100 point versions  <<<<<
 	*/
-	public static boolean isPal(String s){
-		String reversedString = "";
-		for (int i = 0; i < s.length(); i++) {
-			reversedString += s.charAt(s.length() - i);
-			System.out.println("Reversed letter at: " + (s.length() - i) + " became: " + reversedString);
+	public static boolean isPal(String s){ // Returns if a given string is a palindrome or not
+		String reversedString = ""; // reversed version of s
+		for (int i = 0; i < s.length(); i++) { // Iterates through the string, taking the last letter - i and adding it to the reversed version.
+			reversedString += s.charAt(s.length()-1 - i);
+			//System.out.println("Reversed letter at: " + (s.length() - i -1) + " became: " + reversedString); DEBUG
 		}
-		System.out.println(reversedString);
-    	return reversedString.compareTo(s) == 1 ? true : false ;      // This statement is provided to allow initial compiling.
+    	return reversedString.equals(s);      
 	}
 	/*
     * Precondition:  s is a String of one character.

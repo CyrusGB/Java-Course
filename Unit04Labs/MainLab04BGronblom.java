@@ -7,7 +7,7 @@
 
 import java.util.Scanner;
 
-class MainLab04AGronblom {
+class MainLab04BGronblom {
   public static void main(String[] args) {
     Scanner input = new Scanner(System.in);
     boolean notFinished = false;
@@ -19,9 +19,10 @@ class MainLab04AGronblom {
         System.out.println("Palindrome:         " + Palindrome_Gronblom.isPal(str));
         System.out.println("Almost Palindrome:  " + Palindrome_Gronblom.almostPal(str));   
         System.out.print("Do you wish to repeat this program [Y/N]?  ===>>  ");
-        String repeat = input.nextLine();
+        String repeat = input.nextLine().toUpperCase();
         notFinished = (repeat.equals("Y"));
         System.out.println();
     }while (notFinished);
+    System.out.println("Fine! I didnt want to check for any more palindromes anyway! >:(");
   }
 }
