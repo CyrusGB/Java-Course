@@ -24,8 +24,13 @@ class Palindrome_Gronblom{
   	* Postcondition: The value of true is returned if s is a letter and false otherwise.
   	* Note:          >>>>> This method is only completed for the 100 point version  <<<<<
   	*/
-  	private static boolean isLetter(String letter){
-    	return true;      // This statement is provided to allow initial compiling.
+  	private static boolean isLetter(String letter){ // Checks if given string is a letter.
+    	char character = letter.toUpperCase().charAt(0);
+		int ascii = (int)(character);		
+		if(ascii >= 65 && ascii <= 90){ // Checks if character is within the uppercase letters in acsii
+			return true;
+		}
+		return false;      
   	}
    
 	/*
@@ -33,8 +38,14 @@ class Palindrome_Gronblom{
 	* Postcondition: All non-letter characters are removed from s, and this "purged" String is returned.
     * Note:          >>>>> This method is only completed for the 100 point version  <<<<<
 	*/
-	private static String purge(String s){
-    	return "";        // This statement is provided to allow initial compiling.
+	private static String purge(String s){ // Remove all non letter chars in a string
+    	String tmp = ""; // Temporary string to return
+		for (char character : s.toCharArray()){ // Loop through characters in string
+			if((isLetter(String.valueOf(character)))){ // Check if the character is a letter and add it to the string if so
+				tmp += character;
+			}
+		}
+		return tmp;
 	}
    
     /*
@@ -43,8 +54,12 @@ class Palindrome_Gronblom{
 	*                the value of true is returned if the resulting String is a Palindrome, false otherwise.
     * Note:          >>>>> This method is only completed for the 100 point version  <<<<<
 	*/
-	public static boolean almostPal(String s){
-		return true;      // This statement is provided to allow initial compiling.
+	public static boolean almostPal(String s){ // Check if the string is a palindrome after removing all non letter chars
+		if(isPal(s) || !isPal(purge(s))){ // ^^^
+			return false;
+		}
+
+		return true;
 	}
 
 }

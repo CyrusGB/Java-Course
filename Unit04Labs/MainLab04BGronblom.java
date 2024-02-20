@@ -9,9 +9,9 @@ import java.util.Scanner;
 
 class MainLab04BGronblom {
   public static void main(String[] args) {
-    Scanner input = new Scanner(System.in);
-    boolean notFinished = false;
-    do{
+    Scanner input = new Scanner(System.in); // User input
+    boolean notFinished = false; // Done looking for palindromes
+    do{ // Keep asking user for new strings until they say "N"
         System.out.print("Enter a string  ===>>  ");
         String str = input.nextLine();
         System.out.println();
