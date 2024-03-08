@@ -6,7 +6,6 @@
 // program will be able to draw a fence with a for, while or do while loop
 // program will also check for proper user input 
 
-
 import java.awt.*;
 import javax.swing.JFrame;
 import java.util.Scanner;
@@ -33,12 +32,45 @@ public class Lab05AGronblom extends Canvas {
 
   public void paint(Graphics g){
     Scanner input = new Scanner(System.in); //create scanner object for input
-    //use getInt method to get error checked input from user
-    int sections = getInt(input, "How many sections of fence would you like?");
-    int distance = 60;
-    for (int i = 0; i < sections; i++){
-      drawPicket(g, i * distance);
-    }
+    int distance = 60; // Distance inbetween fence posts
+
+    int sections = getInt(input, "How many sections of fence would you like?: "); // Sections of fence
+    int loopType = getInt(input, "Which loop type should be used? (1 = for, 2 = while, 3 = do while)?: "); // Loop type
+    
+    input.close(); // Kill input
+
+    switch (loopType) { // Determine loop type
+      case 1: // For loop
+        for (int i = 0; i < sections; i++) {
+          drawPicket(g, i * distance);
+          if(i < sections -1){
+            drawRails(g, i * distance);
+          }
+        }
+        break;
+      
+      case 2: // While loop
+        int sectionsDone = 0;
+        while (sectionsDone < sections){
+          drawPicket(g, sectionsDone * distance);
+          if(sectionsDone < sections -1){
+            drawRails(g, sectionsDone * distance);
+          }
+          sectionsDone ++;
+        }
+
+      case 3: // Do while loop
+        int sectionsComplete = 0;
+        do{
+          drawPicket(g, sectionsComplete * distance);
+          if(sectionsComplete < sections -1){
+            drawRails(g, sectionsComplete * distance);
+          }
+          sectionsComplete ++;
+        }while (sectionsComplete < sections);
+        break;
+    } // End Switch
+    System.out.println("Done!");
   }//end paint
   
   
@@ -46,27 +78,34 @@ public class Lab05AGronblom extends Canvas {
   //if incorrect input avoid error, send output to user and ask for correct input
   public static int getInt(Scanner console, String prompt){
     System.out.print(prompt);
-    //console.next();
+    while(!console.hasNextInt()){ // Keep asking for correct input
+      System.out.println("Not an int!");
+      console.nextLine();
+      System.out.print(prompt);
+    }
     return console.nextInt();
   }
   
   //method for painting a fence post to canvas window
   public static void drawPicket(Graphics g, int x){
-    int picketWidth = 30;
-    int picketHeight = 80;
-    int pointHeight = 10;
-    Polygon picket = new Polygon();
+    int picketWidth = 30; // Width of picket
+    int picketHeight = 80; // Height of picket
+    int pointHeight = 10; // Height of pointy part (included in picket height)
+    g.setColor(Color.LIGHT_GRAY);
+    Polygon picket = new Polygon(); // Picket polygon
     picket.addPoint(x, 350);
     picket.addPoint(x, 350 - picketHeight + pointHeight); // To the bottom of the point
     picket.addPoint(x + picketWidth / 2, 350 - picketHeight); // To tip of point
     picket.addPoint(x + picketWidth, 350 - picketHeight + pointHeight); // Back to bottom
-    picket.addPoint(x + picketWidth, 350);
+    picket.addPoint(x + picketWidth, 350); 
     g.fillPolygon(picket);
   }
   
   //method for painting two rails inbetween posts.
   public static void drawRails(Graphics g, int x){
-    
+    g.setColor(Color.BLACK);
+    g.fillRect(x + 30, 300, 60, 20);
+    g.fillRect(x + 30, 325, 60, 20);
   }
 
    
