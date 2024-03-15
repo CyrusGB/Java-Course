@@ -8,7 +8,6 @@
 // one method handles all bases less then 10 and the other handles hexadecimal 
 
 import java.util.Scanner;
-
 class Lab05BGronblom {
   public static void main(String[] args) {
     Scanner input = new Scanner(System.in); //create scanner object for input
@@ -39,11 +38,11 @@ class Lab05BGronblom {
     int currInt = x; // Get it curr-int, It's the current int 
     while(currInt > 0){ // Iterate until converted number is complete
       binary += currInt % b;
-      currInt = currInt/b;
+      currInt /= b;
     }
     return reverse(binary);
   }
-
+  
   //method for decimal input to a String hex format output
   public static String toHex(int x){
     String hexi = ""; // End hexidecimal
@@ -91,10 +90,6 @@ class Lab05BGronblom {
 			reversedString += s.charAt(s.length()-1 - i);
 			//System.out.println("Reversed letter at: " + (s.length() - i -1) + " became: " + reversedString); DEBUG
 		}
-
     return reversedString;      
 	}
-
-
-
 }
