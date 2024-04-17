@@ -43,7 +43,7 @@ public class Lab05AGronblom extends Canvas {
       case 1: // For loop
         for (int i = 0; i < sections; i++) {
           drawPicket(g, i * distance);
-          if(i < sections -1){
+          if(i < sections){
             drawRails(g, i * distance);
           }
         }
@@ -53,7 +53,7 @@ public class Lab05AGronblom extends Canvas {
         int sectionsDone = 0;
         while (sectionsDone < sections){
           drawPicket(g, sectionsDone * distance);
-          if(sectionsDone < sections -1){
+          if(sectionsDone < sections){
             drawRails(g, sectionsDone * distance);
           }
           sectionsDone ++;
@@ -63,13 +63,14 @@ public class Lab05AGronblom extends Canvas {
         int sectionsComplete = 0;
         do{
           drawPicket(g, sectionsComplete * distance);
-          if(sectionsComplete < sections -1){
+          if(sectionsComplete < sections){
             drawRails(g, sectionsComplete * distance);
           }
           sectionsComplete ++;
         }while (sectionsComplete < sections);
         break;
     } // End Switch
+    drawPicket(g, distance * sections);
     System.out.println("Done!");
   }//end paint
   
