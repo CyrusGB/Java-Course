@@ -121,7 +121,7 @@ class MagicSquareGronblom
 
 		total = 0;
 		c = 0;
-		r = 4;
+		r = size-1;
 		while(c < size - 1){ // Up to the right
 			System.out.print(output.format(magic[r][c]) + " + ");
 			total += magic[r][c];

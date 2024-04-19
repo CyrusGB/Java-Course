@@ -51,9 +51,9 @@ class DeckGronblom {
   }
 
   public void replaceCardAt(int indexToReplace, int newCardCurrIndex, CardGronblom newCard){ // Replaces a card at a given index using the new cards current index and the new card
-      CardGronblom oldCard = cards[indexToReplace];
-      cards[indexToReplace] = newCard;
-      cards[newCardCurrIndex] = oldCard;
+    CardGronblom oldCard = cards[indexToReplace];
+    cards[indexToReplace] = newCard;
+    cards[newCardCurrIndex] = oldCard;
   }
 
   public int getRandom(int min, int max){ // Randomly generates a number, needs the min and max boundaries

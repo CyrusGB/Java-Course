@@ -4,8 +4,6 @@
 // Purpose of Program: 
 
 import java.awt.*;
-
-import javax.crypto.SecretKey;
 import javax.swing.JFrame;
 import java.util.Scanner;
 
@@ -22,7 +20,7 @@ public class CanvasClassesMainGronblom extends Canvas {
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     Canvas canvas = new CanvasClassesMainGronblom();//constructor must match class name
     canvas.setSize(Cwidth, Cheight);
-    canvas.setBackground(Color.WHITE);//colors:RED,GREEN,BLUE,YELLOW,MAGENTA,CYAN,WHITE,BLACK,GRAY,LIGHT_GRAY,DARK_GRAY,PINK,ORANGE    
+    canvas.setBackground(new Color(191, 248, 255));//colors:RED,GREEN,BLUE,YELLOW,MAGENTA,CYAN,WHITE,BLACK,GRAY,LIGHT_GRAY,DARK_GRAY,PINK,ORANGE    
     frame.add(canvas);
     frame.pack();
     frame.setVisible(true);
@@ -31,7 +29,8 @@ public class CanvasClassesMainGronblom extends Canvas {
 
   public void paint(Graphics g){
     Scanner input = new Scanner(System.in); //create scanner object for input
-    int season = getInt(input, "Please choose season (1 = Spring, 2 = Summer, 3 = Fall, 4 = Winter): ");
+    // int season = getInt(input, "Please choose season (1 = Spring, 2 = Summer, 3 = Fall, 4 = Winter): ");
+    int season = 1;
     Color seasonColor = Color.white; 
     Color treeColor = Color.black;
     switch (season) {
@@ -52,7 +51,7 @@ public class CanvasClassesMainGronblom extends Canvas {
 
       case 4: // Winter
         seasonColor = new Color(242, 252, 252);
-        treeColor = Color.red; // Ideally the tufts and animated leaves will not be drawn
+        treeColor = seasonColor;
         break;
     
       default:
@@ -65,8 +64,8 @@ public class CanvasClassesMainGronblom extends Canvas {
   }
 
   public void drawScene(Color sceneColor, Color treeColor, Graphics g){
-      Scenery scene = new Scenery();
-      scene.drawScene(sceneColor, g);
+      Scenery scene = new Scenery(sceneColor, treeColor, g); // Creates a scene
+      scene.drawScene();
   }
   
   
@@ -83,3 +82,4 @@ public class CanvasClassesMainGronblom extends Canvas {
   }
    
 }//end class
+
