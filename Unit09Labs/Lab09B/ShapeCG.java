@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public interface Shape{
+public interface ShapeCG{
 	public abstract void drawShape(Graphics g);
 
 	// public abstract void displayName(Graphics g);

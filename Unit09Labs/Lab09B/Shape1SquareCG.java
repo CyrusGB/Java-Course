@@ -4,7 +4,7 @@
 
 import java.awt.*;
 
-public class Shape1Square implements Shape{
+public class Shape1SquareCG implements ShapeCG{
   public void drawShape(Graphics g){
    
   }

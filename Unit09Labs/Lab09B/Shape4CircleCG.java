@@ -4,7 +4,7 @@
 
 import java.awt.*;
 
-public class Shape4Circle implements Shape{
+public class Shape4CircleCG implements ShapeCG{
   public void drawShape(Graphics g){
   
   }   

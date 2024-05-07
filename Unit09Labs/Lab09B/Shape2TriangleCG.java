@@ -4,7 +4,7 @@
 
 import java.awt.*;
 
-public class Shape2Triangle implements Shape{
+public class Shape2TriangleCG implements ShapeCG{
   public void drawShape(Graphics g){
   
   }
