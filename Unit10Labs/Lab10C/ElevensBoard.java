@@ -209,9 +209,13 @@ public class ElevensBoard{
 	 */
 	public boolean isLegal(List<Integer> selectedCards){
 		/* *** TO BE IMPLEMENTED IN Lab10B *** */
-      
-      
-      return true;
+	  if(selectedCards.size() == 3) // Checking for the 3 face cards
+		return containsJQK(selectedCards);
+	  else if(selectedCards.size() == 2) // Checking for a pair which adds to 11
+		return containsPairSum11(selectedCards);
+
+	  // Selection is illegal
+      return false;
 	}
 
 	/**
@@ -224,14 +228,12 @@ public class ElevensBoard{
 	 */
 	public boolean anotherPlayIsPossible(){
 		/* *** TO BE IMPLEMENTED IN Lab10B *** */
-      
-      
-      return true;
+      return containsPairSum11(cardIndexes()) || containsJQK(cardIndexes()); // Game is still winnable!
 	}
    
    /**
 	 * Check for an 11-pair in the selected cards.
-	 * @param selectedCards selects a subset of this board.  It is list
+	 * @param selectedCards selects a subset of this board.  It is a list
 	 *                      of indexes into this board that are searched
 	 *                      to find an 11-pair.
 	 * @return true if the board entries in selectedCards
@@ -239,9 +241,16 @@ public class ElevensBoard{
 	 */
 	private boolean containsPairSum11(List<Integer> selectedCards){
 		/* *** TO BE IMPLEMENTED IN Lab10B *** */
-      
-      
-      return true;
+	  for (int card1 = 0; card1 < selectedCards.size(); card1++) { // Iterate through selected cards
+		for (int card2 = 0; card2 < selectedCards.size(); card2++) { // Iterate throuhgh all the cards again to compare them
+			if(card1 != card2){ // Check if same card
+				if(cardAt(selectedCards.get(card1).intValue()).pointValue() + cardAt(selectedCards.get(card2).intValue()).pointValue() == 11){ // Return true if both cards add up to 11
+					return true;
+				}
+			}
+		}
+	  }
+      return false;
 	}
 
 	/**
@@ -254,9 +263,18 @@ public class ElevensBoard{
 	 */
 	private boolean containsJQK(List<Integer> selectedCards){
 		/* *** TO BE IMPLEMENTED IN Lab10B *** */
-      
-      
-      return true;
+	  Boolean j = false; // Contains jack
+	  Boolean q = false; // Contains queen
+	  boolean k = false; // Conatins king
+      for (int card = 0; card < selectedCards.size(); card++) {
+		if(!j)
+		j = (cardAt(selectedCards.get(card).intValue()).rank().equals("jack")); // Rank is jack
+		if(!q)
+		q = (cardAt(selectedCards.get(card).intValue()).rank().equals("queen")); // Rank is queen
+		if(!k)
+		k = (cardAt(selectedCards.get(card).intValue()).rank().equals("king")); // Rank is king
+	  }
+	  return (j && q && k); // Contains all royalty
 	}
    
 }
